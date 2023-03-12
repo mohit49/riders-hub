@@ -1,0 +1,120 @@
+
+.login_con {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 900px;
+    height: 600px;
+    transform: translate(-50%, -50%);
+    display: flex;
+    border-radius: 20px;
+    overflow: hidden;
+    
+}
+.bottom-button {
+    margin: 10px auto;
+    text-align: left;
+    width: 100%;
+    button {
+        width: 200px;
+    }
+}
+.login_banner {
+ background-size: cover !important;
+ height: 100%;
+}
+.login-form {
+    padding: 20px 30px;
+  
+}
+.form-con {
+    padding:10px 0px;
+   
+}
+.ant-select-single {
+    width: 100%;
+    .ant-select-selector {
+        height: 40px !important;
+        border-radius: 5px !important;
+        display: flex;
+        align-items: center;
+        .ant-select-selection-item {
+            text-transform: capitalize;
+        }
+        
+    }
+}
+.form-con p{
+    text-align: center;
+}
+
+    .login_banner {
+           display: flex;
+           flex-direction: column;
+           justify-content: end;
+        h1 {
+            margin: 0px 20px;
+            font-size: 30px;
+            font-weight: bold;
+            color:#ffffff;
+        }    
+        p{
+            margin: 20px 20px;
+            color: #ffffff;
+        }
+        }
+
+   
+.kep-login-facebook {
+    padding: 8px 30px !important; 
+    border-radius: 8px !important;
+    font-weight: lighter !important;
+    text-transform: capitalize !important;
+    width: 100% !important;
+}
+
+.errormsg {
+    p{
+        color:red;
+        font-size: 13px;
+        line-height: 16px;
+        text-align: left;
+    }
+}
+@media only screen and (max-width: 1336px) {
+    .login_con {
+        width: 800px;
+        height: 500px;
+    }
+  }
+  @media only screen and (max-width: 1024px) {
+    .login_con {
+        width: 800px;
+        height: 500px;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .login_con {
+        width: 100%;
+       height:100vh;
+       position:relative;
+       top: 0;
+       transform: none;
+       left: 0;
+       border-radius: 0;
+       overflow: auto;
+       display: flex;
+    flex-direction: column;
+    }
+    .login_banner {
+        height: 300px;
+    }
+    .login-form {
+       width: 100%;
+       margin: 0 auto;
+       .ant-select-single {
+        width: 100%;
+    }
+       
+    }
+  }

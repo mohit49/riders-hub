@@ -1,0 +1,89 @@
+.section-from-riders {
+    width: 100%;
+    padding: 30px 0px;
+    background: #ffffff;
+    h3 {
+        font-size: 18px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        a {
+            font-size: 14px;
+        }
+    }
+    .demoCon-biker {
+        margin-top: 40px;
+        display: flex;
+        flex-direction: row;
+
+        .cardContiner {
+            padding: 10px;
+            .ant-skeleton  {
+                padding: 15px;
+                border-radius: 5px;
+                background: #f5f5f5;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+.ant-skeleton-header {
+    padding: 0;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 10px;
+    .ant-skeleton-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}
+.ant-skeleton-content {
+    margin-top: 20px;
+}
+        }
+
+        
+    }
+    .actual-biker-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        margin-top: 30px;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overflow-y: hidden;
+        .ant-card-bordered {
+            width: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 5px;
+            background-color: #E6ECF1 !important;
+            .ant-card-cover {
+                width: 150px;
+                align-items: center;
+                height: 150px;
+                overflow: hidden;
+                border-radius: 50%;
+                margin-top: 20px;
+                img {
+                    width: 100%;
+                }
+            }
+            .ant-card-body {
+                width: 100%;
+                text-align: center;
+                p {
+                    margin: 3px;
+                }
+                .email {
+                    font-style: italic;
+                }
+            }
+        }
+    }
+}

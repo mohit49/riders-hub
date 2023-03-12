@@ -1,0 +1,134 @@
+.create-event-page {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+.mainBanner {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 100%;
+    height: 200px;
+  background-size: cover !important;
+    overflow: hidden;
+    position: relative;
+    img {
+        width: 100%;
+    }
+    .innerContent {
+        position: absolute;
+        color: #ffffff;
+        width: 100%;
+        text-align: center;
+        top: 20%;
+        padding: 10px;
+
+       
+        h2 {
+            color: #ffffff;
+            font-weight: lighter;
+        }
+        p{
+            font-size: 15px;
+        }
+    }
+   
+}
+.creator-info {
+    width: 100%;
+    padding: 10px;
+    background: #0d6efd;
+    color: #ffffff;
+    display: flex;
+    font-size: 25px;
+    align-items: center;
+    p{
+        margin: 0;
+    }
+}
+.event-form {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    width: 100%;
+    background: #ffffff;
+    padding: 15px;
+    border: radius 0;
+    margin: 0;
+    min-height: 350px;
+    .ant-picker {
+        border-radius: 5px;
+        padding: 10px ;
+        width: 100%;
+    }
+    .ant-select {
+        width: 100%;
+       .ant-select-selector {
+        border-radius: 5px;
+        height: 45px;
+        .ant-select-selection-item {
+            display: flex;
+            align-items: center;
+        }
+       }
+    }
+    .ant-form-item-control-input-content {
+        .ant-upload-list-item {
+            border: 1px #ccc solid !important;
+        }
+    }
+    .form-label {
+        font-size: 16px;
+        width: 100%;
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: 500;
+
+    }
+    .ck-toolbar_grouping {
+        border-top-right-radius: 5px !important;
+        border-top-left-radius: 5px !important;
+    }
+    .ck-content.ck-editor__editable {
+        border-bottom-right-radius: 5px !important;
+        border-bottom-left-radius: 5px !important;
+    } .ant-upload-list-picture .ant-upload-list-item-error, .ant-upload-list-picture-card .ant-upload-list-item-error {
+        border-color: #0d6efd ;
+    }
+    .ant-upload-list-item-error .ant-upload-list-item-name {
+        color: #0d6efd;
+    }
+    .ant-input {
+        width: 100%;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    .ck-content.ck-editor__editable {
+        min-height: 500px;
+    }
+    .ant-upload-picture-card-wrapper {
+        margin-top: 10px;
+    }
+    .spinner-grow  {
+        left: 50% !important;
+        height: 50px;
+        width: 50px;
+        margin-left: -25px;
+        position: absolute;
+        top: 50%;
+    }
+    @media (min-width:1366px) { 
+        .mn-continer {
+            width: 600px;
+            position: relative;
+            margin: 0 auto;
+           
+        }
+        .creator-info { 
+            padding: 20px 50px;
+        }
+    }
+   
+}
+
+.ant-result {
+    background: #ffffff;
+    border-radius: 5px;
+    margin-top: 0;
+}
+}

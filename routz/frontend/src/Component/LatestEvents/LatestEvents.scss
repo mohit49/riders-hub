@@ -1,0 +1,88 @@
+.content-area-latest-ride {
+  padding: 40px 0px;
+background: none;
+  
+  h3 {
+    font-size: 18px;
+    
+  
+    padding: 0px 10px;
+  }
+  .ant-card-cover {
+    img {
+      height: 120px;
+      width: auto;
+    }
+  }
+  .ant-card-body {
+    padding: 15px;
+  }
+  .card-contaner {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    .ant-card {
+      box-shadow: none;
+      overflow: hidden;
+      border-radius: 8px;
+      margin: 10px;
+      display: flex;
+      width: 240px;
+      flex-direction: column;
+      justify-content: flex-start;
+      hr {
+        margin: 5px 0px;
+    }
+      @media only screen and (max-width: 600px) {
+        & {
+            flex-shrink: 0;
+            width: 210px;
+            .ant-card-body {
+                padding: 10px;
+              
+            }
+        }
+      }
+      .subHead {
+        margin-top: 5px;
+        margin-bottom: 0;
+      }
+      .duration {
+        margin: 0;
+      }
+      .city {
+        font-weight: 400;
+        margin: 0;
+      }
+
+      .organizer {
+        margin: 0;
+        margin-bottom: 0;
+        font-weight: 400;
+      }
+      .duration {
+        font-style: italic;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+      h4 {
+        margin: 0;
+        font-size: 16px;
+        font-weight: bold;
+        margin-bottom: 5px;
+      }
+      .buttonCard {
+        margin-top: 10px;
+      }
+    }
+    .sliderAdd {
+      width: 240px;
+      margin: 10px;
+    }
+    @media only screen and (max-width: 600px) {
+      & {
+        overflow-x: auto;
+      }
+    }
+  }
+}

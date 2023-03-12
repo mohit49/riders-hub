@@ -1,0 +1,80 @@
+.riders-update {
+  background: #e6ecf1 !important;
+  @media only screen and (max-width: 600px) {
+    .container {
+      padding: 0;
+      h3 {
+        padding: 0px 10px;
+        width: 100;
+      }
+    }
+  }
+  width: 100%;
+  padding: 40px 0px;
+ 
+  display: flex;
+  h3 {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      font-size: 14px;
+    }
+  }
+  .card-container-showrooms {
+    width: 100%;
+    padding: 15px 0px;
+    .card-container-showrooms-ul {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      @media only screen and (max-width: 600px) {
+        & {
+          display: flex;
+          flex-wrap: nowrap;
+          overflow-x: scroll;
+        }
+      }
+      .card-container-showrooms-list {
+        display: flex;
+        padding: 0px 5px;
+        width: 20%;
+
+        background: #f5f5f5;
+        @media only screen and (max-width: 600px) {
+            & {
+                width: 200px;
+            }
+          }
+        .ant-card {
+            width: 100%;
+          @media only screen and (max-width: 600px) {
+            & {
+             width: 200px;
+            }
+          }
+        }
+        .ant-card-cover {
+          width: 100%;
+          img {
+            width: 100%;
+          }
+        }
+        .ant-card-body {
+          background: #ffffff !important;
+          padding: 10px;
+          h4 {
+            font-size: 18px;
+          }
+          p {
+            font-weight: 400;
+            margin: 3px 0px;
+          }
+        }
+      }
+    }
+  }
+}

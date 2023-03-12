@@ -1,0 +1,15 @@
+.error-con {
+    width: 990px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    min-height: 600px;
+    align-items: center;
+    .errorText {width: 500px;}
+    .image-container {
+        width: 600px;
+        img {
+            width: 100%;
+        }
+    }
+}

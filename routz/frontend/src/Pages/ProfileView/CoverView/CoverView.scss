@@ -1,0 +1,154 @@
+.mn-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: 0;
+  padding: 0 !important;
+}
+.left-contaner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 0px;
+  min-height: 200px;
+  justify-content: flex-end;
+  background-size: cover !important;
+  position: relative;
+  margin-top: -80px;
+  .picture-section {
+    top: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .pro-pic {
+    width: 170px;
+    height: 170px;
+    border-radius: 5%;
+    background: #333333;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+    }
+  }
+  .profile-name {
+    font-size: 25px;
+    font-weight: bold;
+    margin-top: 10px;
+    p {
+      margin: 0;
+    }
+    span {
+      font-size: 15px;
+    }
+  }
+  .user-name {
+    p {
+      margin: 0;
+      font-size: 16px;
+      background: #f12711;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+      color: #ffffff;
+      font-style: italic;
+      padding: 3px 15px;
+      border-radius: 5px;
+      
+    }
+  }
+  .follow-btn {
+    margin-top: 10px;
+  }
+  .completed-KMS {
+    width: 100%;
+    display: flex;
+    padding: 0px;
+
+    background: #8a2387; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+      to right,
+      #f27121,
+      #e94057,
+      #8a2387
+    ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+      to right,
+      #f27121,
+      #e94057,
+      #8a2387
+    ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  }
+
+  .kms-con,
+  .bike-own {
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    h4 {
+      color: #ffffff;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    h5 {
+      color: #ffffff;
+      font-size: 20px;
+    }
+  }
+  .about {
+    padding: 15px;
+    text-align: center;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .mn-container {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+  }
+  .left-contaner {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    align-items: flex-start;
+    text-align: left;
+    margin-top: 0px;
+    .picture-section {
+      align-items: flex-start;
+      padding: 15px;
+    }
+    .about {
+        padding: 15px 0px;
+        text-align: left; 
+        h5 {
+            font-size: 18px;
+        }
+        p {
+            font-size: 13px;
+        }
+      }
+      .right-cover {
+        padding: 0 15px;
+        
+      }
+  }
+  .completed-KMS {
+    flex-direction: column;
+    border-radius: 10px;
+    .bike-own {
+      padding: 0;
+      .kms-con {padding: 0 10px;}
+    }
+  }
+}

@@ -1,0 +1,35 @@
+.page-footer {
+  background: #212529;
+  padding-top: 15px;
+  .container {
+    padding: 10px 0px;
+  }
+  .footer-copyright{
+    background: #000000;
+    color: #cccccc;
+    a {
+      color: #ffffff;
+    }
+  }
+  .list-unstyled {
+    .ant-space {
+      .ant-space-item {
+        padding: 5px;
+        .anticon {
+          svg {
+            font-size: 20px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+    li {
+      text-align: left;
+      margin-bottom: 5px;
+      a {
+        color:#ffffff;
+        text-align: left;
+      }
+    }
+  }
+}
