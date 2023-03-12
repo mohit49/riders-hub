@@ -39,7 +39,7 @@ app.use(cookieParser());
 
 const serverRenderer = (req, res, next) => {
   
-  fs.readFile(path.resolve('../build/index.html'), 'utf8', (err, data) => {
+  fs.readFile(path.resolve('../dist/index.html'), 'utf8', (err, data) => {
     console.log(data)
     let html = ReactDOMServer.renderToString(
       <StaticRouter location={req.url}>
