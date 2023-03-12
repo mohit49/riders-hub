@@ -13,9 +13,9 @@ import {
   Outlet,
 } from "react-router-dom";
 
-ReactDOM.hydrate(  <BrowserRouter>
+ReactDOM.hydrate(  
  <Router>
     <App />
     </Router>
-  </BrowserRouter>, document.documentElement);
+ , document.documentElement);
 
