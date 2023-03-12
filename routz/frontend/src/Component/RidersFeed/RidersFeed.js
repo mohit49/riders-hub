@@ -46,7 +46,7 @@ if ((!userPosition?.city && typeof userPosition?.city != "undefined") || userPos
       <Container><h3><span>View Riders Near you</span> <a href="/">View All</a></h3>
 {loader && <div className='demoCon-biker'><CardSleleton/></div>}
 {!loader && <div className='actual-biker-content'>
-  {
+  { data &&
 data.map((ele, index) => {
   console.log(ele)
                 return (
