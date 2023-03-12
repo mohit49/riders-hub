@@ -121,7 +121,7 @@ function LatestEvents() {
 
   return (
     <>
-      <Suspense fallback={ <div className="spinner-con"><Spinner animation="border" variant="primary"/></div>}>
+    
    
         <Container className='content-area-latest-ride'>
           <h3>Latest Event</h3>
@@ -195,7 +195,7 @@ function LatestEvents() {
             </div>
           </div>
         </Container>
-    </Suspense>
+   
     </>
   );
 }
