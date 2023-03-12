@@ -61,13 +61,14 @@ const serverRenderer = (req, res, next) => {
 }
 router.use('^/$', serverRenderer)
 
-app.get( /\.(js|css|map|ico)$/, express.static( path.resolve( __dirname, '../dist' ) ) );
-
+router.use(
+  express.static(path.resolve(__dirname, '..', 'dist'), { maxAge: '30d' })
+)
 
 // tell the app to use the above rules
 
 
-
+app.use(express.static('../dist'));
 app.use('/api', router);
 /**
  * Api require Modules Name
