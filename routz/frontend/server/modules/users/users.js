@@ -5,7 +5,7 @@ const Register = require("../../scemas/registration");
 
 const authenticateJWT = require("../../middleware/auth");
 
-router.get("/api/users", authenticateJWT, async (req, res) => {
+router.get("/users", authenticateJWT, async (req, res) => {
   const username = await Register.findOne({ _id: req.userId }, { username: 1 });
   res.status(200).json({
     sucessStatus: username,

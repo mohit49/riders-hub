@@ -7,7 +7,7 @@ const Register = require("../../scemas/registration");
 
 const UpdateprofileData = require("../../scemas/profileinfo");
 const accessTokenSecret = "NOTESAPI";
-router.post("/api/register", async (req, res) => {
+router.post("/register", async (req, res) => {
 
   try {
     const emailRegex = /[a-z0-9]+@[a-z]+.[a-z]{2,3}/;

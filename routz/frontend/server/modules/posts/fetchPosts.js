@@ -5,7 +5,7 @@ const router = express.Router();
 // DB Import
 const Postsfetch = require("../../scemas/uploadPosts");
 
-router.get("/api/posts", async (req, res) => {
+router.get("/posts", async (req, res) => {
  
   const limit = req.query?.limit;
   const postType = req.query?.type;

@@ -5,7 +5,7 @@ const Register = require("../../scemas/registration");
 const FollowList = require("../../scemas/followlist");
 const authenticateJWT = require("../../middleware/auth");
 
-router.post("/api/unfollow", authenticateJWT, async (req, res) => {
+router.post("/unfollow", authenticateJWT, async (req, res) => {
   const followList = [];
   const usernameFetch = await Register.findOne(
     { _id: req.userId },

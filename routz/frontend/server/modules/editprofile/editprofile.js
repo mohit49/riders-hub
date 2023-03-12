@@ -26,7 +26,7 @@ filename:(req,file,cb) =>{
 }
 })
 const upload = multer({storage: fileStorageEngine});
-router.post("/api/editprofile", authenticateJWT, upload.single('image'), async (req, res, next) => {
+router.post("/editprofile", authenticateJWT, upload.single('image'), async (req, res, next) => {
  var coverPic , profilePic;
   if(req.body?.coverPic == 'true') { 
     coverPic = req.file;

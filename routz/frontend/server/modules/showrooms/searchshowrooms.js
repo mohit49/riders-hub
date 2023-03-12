@@ -8,7 +8,7 @@ const RegisterData = require("../../scemas/registration");
 const profileInfo = require("../../scemas/profileinfo");
 const authenticateJWT = require("../../middleware/auth");
 
-router.get("/api/showrooms", async (req, res) => {
+router.get("/showrooms", async (req, res) => {
   const limit = Number(req.query?.limit);
   const state = req.query?.state;
   const city = req.query?.city;

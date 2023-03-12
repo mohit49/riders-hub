@@ -24,7 +24,7 @@ filename:(req,file,cb) =>{
 }
 });
 const upload = multer({storage: fileStorageEngine});
-router.post("/api/createevent", authenticateJWT, upload.single('image'),  async (req, res, next) => {
+router.post("/createevent", authenticateJWT, upload.single('image'),  async (req, res, next) => {
 
 
   const createEventData = {
