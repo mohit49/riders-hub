@@ -9,7 +9,7 @@ import App from '../src/App';
 
 
 import ReactDOMServer from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import { BrowserRouter } from "react-router-dom/server";
 
 const appReact = App;
 
@@ -42,9 +42,9 @@ const serverRenderer = (req, res, next) => {
   fs.readFile(path.resolve('../dist/index.html'), 'utf8', (err, data) => {
     console.log(data)
     let html = ReactDOMServer.renderToString(
-      <StaticRouter location={req.url}>
+      <BrowserRouter location={req.url}>
         <App />
-      </StaticRouter>
+      </BrowserRouter>
     );
     console.log(html);
     if (err) {
