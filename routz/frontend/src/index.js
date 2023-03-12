@@ -5,7 +5,12 @@ import "./App.scss";
 import ReactDOM from "react-dom";
 
 import {
-  BrowserRouter
+  BrowserRouter as Router,
+  Link,
+  Routes,
+  Route,
+  useLocation,
+  Outlet,
 } from "react-router-dom";
 
 ReactDOM.hydrate(  <BrowserRouter>
