@@ -90,7 +90,7 @@ export function App() {
         <Routes>
      
           <Route element={<AnimationLayout />}>
-            <Route path='/' element={<Suspense fallback={ <div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Home /></Suspense>} />
+            <Route path='/' element={<Home />} />
             <Route path='/login' element={<Suspense fallback={ <div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Login /></Suspense>} />
             <Route path='/register' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Register /></Suspense>} />
             <Route path='/create-events' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><CreateEvent /></Suspense>} />
