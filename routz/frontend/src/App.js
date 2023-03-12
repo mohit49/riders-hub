@@ -23,8 +23,8 @@ import ProfileView from "./Pages/ProfileView/ProfileView"
 import ViewEvent from "./Pages/ViewEvent/ViewEvent";
 import Home from "./Pages/Home/Home";
 
-const Register = React.lazy(() => import("./Pages/Register/Register"));
-const CreateEvent = React.lazy(() => import("./Pages/CreateEvent/CreateEvent"));
+import Register from "./Pages/Register/Register";
+import CreateEvent from "./Pages/CreateEvent/CreateEvent";
 export const Data = createContext();
 const PageLayout = ({ children }) => children;
 const pageVariants = {
