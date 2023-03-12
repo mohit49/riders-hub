@@ -6,9 +6,9 @@ import Button from "react-bootstrap/Button";
 import ImgCrop from "antd-img-crop";
 import { Input, Upload } from "antd";
 
-import { CKEditor } from "@ckeditor/ckeditor5-react";
+//import { CKEditor } from "@ckeditor/ckeditor5-react";
 
-import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+//import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Spinner } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { DatePicker } from "antd";
