@@ -17,5 +17,5 @@ ReactDOM.hydrate(
  <Router>
     <App />
     </Router>
- , document.documentElement);
+ , document.getElementById('root'));
 
