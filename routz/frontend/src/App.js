@@ -21,10 +21,9 @@ import Profile from "./Pages/Profile/Profile"
 import ProfileView from "./Pages/ProfileView/ProfileView"
  
 import ViewEvent from "./Pages/ViewEvent/ViewEvent";
-import Home from "./Pages/Home/Home";
-import Register from "./Pages/Register/Register";
-
-
+const Home = React.lazy(() => import("./Pages/Home/Home"));
+const Register = React.lazy(() => import("./Pages/Register/Register"));
+const CreateEvent = React.lazy(() => import("./Pages/CreateEvent/CreateEvent"));
 export const Data = createContext();
 const PageLayout = ({ children }) => children;
 const pageVariants = {
@@ -91,16 +90,16 @@ export function App() {
         <Routes>
      
           <Route element={<AnimationLayout />}>
-            <Route path='/' element={<Home />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<Register />} />
-           
-            <Route path='/profile' element={<Profile />}  >
+            <Route path='/' element={<Suspense fallback={ <div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Home /></Suspense>} />
+            <Route path='/login' element={<Suspense fallback={ <div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Login /></Suspense>} />
+            <Route path='/register' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Register /></Suspense>} />
+            <Route path='/create-events' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><CreateEvent /></Suspense>} />
+            <Route path='/profile' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><Profile /></Suspense>}  >
             
             </Route>
-            <Route path='/profile/:userId' element={<ProfileView />} />
+            <Route path='/profile/:userId' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><ProfileView /></Suspense>} />
             <Route path='/event'>
-              <Route path=':eventName' element={<ViewEvent />} />
+              <Route path=':eventName' element={<Suspense fallback={<div className="spinner-con"><Spinner animation="border" variant="primary"  /></div>}><ViewEvent /></Suspense>} />
             </Route>
           </Route>
      
