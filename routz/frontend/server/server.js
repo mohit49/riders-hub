@@ -66,10 +66,9 @@ router.use(
 )
 
 // tell the app to use the above rules
+app.use(router)
 
-
-app.use(express.static('../dist'));
-app.use('/api', router);
+app.use(express.static('../dist'))
 /**
  * Api require Modules Name
  * @type {string}
