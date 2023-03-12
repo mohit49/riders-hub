@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/'
   },
   devServer: {
-    port: 3004,
+    port: 3000,
     historyApiFallback: true,
   },
   module: {
