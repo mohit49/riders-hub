@@ -12,6 +12,7 @@ function CoverView({userData}) {
       <div className="left-contaner">
         <div className="picture-section">
           <div className="pro-pic">
+            {console.log( userData.profilepic)}
 <img src={`${userData.profilepic?.filename ? process.env.REACT_BASE_API_URL + userData.profilepic.destination +'/'+ userData.profilepic.filename : profilepic}`}/>          </div>
           <div className="profile-name">
             <p>  {userData.name} <span>( {userData.username})</span></p>
