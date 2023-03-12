@@ -72,7 +72,7 @@ app.use(express.static('../dist'))
  * @type {string}
  */
 app.use(express.static(__dirname + '/images'));
-app.use('/api/images', express.static(path.join(__dirname, 'images')))
+app.use('/images', express.static(path.join(__dirname, 'images')))
 const registerPage = require("./modules/registration/registration");
 app.post("/api/register", registerPage);
 
