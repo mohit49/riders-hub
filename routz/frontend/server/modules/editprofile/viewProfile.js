@@ -5,7 +5,7 @@ const Register = require("../../scemas/registration");
 const Profileinfo = require("../../scemas/profileinfo");
 const authenticateJWT = require("../../middleware/auth");
 
-router.get("/profile/:username", async (req, res) => {
+router.get("/api/profile/:username", async (req, res) => {
   const username = req.params.username;
 
   const resUserName = await Register.findOne(

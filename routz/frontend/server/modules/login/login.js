@@ -5,7 +5,7 @@ const jwt = require("jsonwebtoken");
 const Register = require("../../scemas/registration");
 
 const accessTokenSecret = "NOTESAPI";
-router.post("/login", async (req, res) => {
+router.post("/api/login", async (req, res) => {
   try {
     let data;
     const getEmail = await Register.findOne(

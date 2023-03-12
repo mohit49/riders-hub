@@ -7,7 +7,7 @@ const Createevent = require("../../scemas/createevent");
 const RegisterData = require("../../scemas/registration");
 const authenticateJWT = require("../../middleware/auth");
 
-router.get("/search-bar", async (req, res) => {
+router.get("/api/search-bar", async (req, res) => {
   const searchtype = req.query?.searchtype;
   const limit = Number(req.query?.limit);
   const queryIndex = 0;

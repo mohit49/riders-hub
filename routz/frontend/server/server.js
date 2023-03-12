@@ -95,28 +95,28 @@ app.get("/api/viewevent/:eventName", viewevent);
 
 
 const followers = require("./modules/follow/follow");
-app.post("/follow", followers);
+app.post("/api/follow", followers);
 const unfollow = require("./modules/follow/unfollow");
-app.post("/unfollow", unfollow);
+app.post("/api/unfollow", unfollow);
 const getProfile = require("./modules/editprofile/fetchprofile");
-app.get("/profile", getProfile);
+app.get("/api/profile", getProfile);
 const viewProfile = require("./modules/editprofile/viewProfile");
-app.get("/profile/:username", viewProfile);
+app.get("/api/profile/:username", viewProfile);
 
 const posts = require("./modules/posts/fetchPosts");
-app.get("/posts", posts);
+app.get("/api/posts", posts);
 
 
 const showrooms = require("./modules/showrooms/searchshowrooms");
-app.get("/showrooms", showrooms);
+app.get("/api/showrooms", showrooms);
 
 const uploadpostImage = require("./modules/uploadImage/uploadImage");
-app.post("/uploadpostImage", uploadpostImage);
+app.post("/api/uploadpostImage", uploadpostImage);
 const addPosts = require("./modules/posts/addPosts");
-app.post("/addPosts", addPosts);
+app.post("/api/addPosts", addPosts);
 
 const searchBar = require("./modules/search-bar/search-bar");
-app.get("/search-bar", searchBar);
+app.get("/api/search-bar", searchBar);
 http.listen(3004, function () {
   console.log("listening on *:4000");
 });
