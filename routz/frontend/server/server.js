@@ -23,7 +23,7 @@ const cors = require("cors");
 const https = require("https");
 const router = express.Router()
 
-app.use('/images', express.static(path.join(__dirname, 'images')))
+
 //const bodyParser = require('body-parser');
 const http = require("http").Server(app);
 app.use(
@@ -72,6 +72,7 @@ app.use(express.static('../dist'))
  * @type {string}
  */
 app.use(express.static(__dirname + '/images'));
+app.use('/images', express.static(path.join(__dirname, 'images')))
 const registerPage = require("./modules/registration/registration");
 app.post("/api/register", registerPage);
 
