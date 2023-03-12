@@ -40,7 +40,7 @@ app.use(cookieParser());
 const serverRenderer = (req, res, next) => {
   
   fs.readFile(path.resolve('../build/index.html'), 'utf8', (err, data) => {
-    console.log('daqta')
+    console.log(data)
     let html = ReactDOMServer.renderToString(
       <StaticRouter location={req.url}>
         <App />
