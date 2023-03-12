@@ -21,7 +21,8 @@ import Profile from "./Pages/Profile/Profile"
 import ProfileView from "./Pages/ProfileView/ProfileView"
  
 import ViewEvent from "./Pages/ViewEvent/ViewEvent";
-const Home = React.lazy(() => import("./Pages/Home/Home"));
+import Home from "./Pages/Home/Home";
+
 const Register = React.lazy(() => import("./Pages/Register/Register"));
 const CreateEvent = React.lazy(() => import("./Pages/CreateEvent/CreateEvent"));
 export const Data = createContext();
