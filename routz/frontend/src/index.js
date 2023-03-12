@@ -4,7 +4,9 @@ import { App } from "./App";
 import "./App.scss";
 import ReactDOM from "react-dom";
 
-
+import {
+  BrowserRouter
+} from "react-router-dom";
 
 ReactDOM.hydrate(  <BrowserRouter>
  <Router>
