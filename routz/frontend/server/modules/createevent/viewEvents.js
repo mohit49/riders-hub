@@ -7,7 +7,7 @@ const Createevent = require("../../scemas/createevent");
 
 const authenticateJWT = require("../../middleware/auth");
 
-router.get("/viewevent/search", async (req, res) => {
+router.get("/api/viewevent/search", async (req, res) => {
   const city = req.query?.city;
   const limit = req.query?.limit;
   const creatorId = req.query?.creatorId;

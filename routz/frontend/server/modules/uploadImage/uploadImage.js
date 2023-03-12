@@ -22,7 +22,7 @@ filename:(req,file,cb) =>{
 }
 });
 const upload = multer({storage: fileStorageEngine});
-router.post("/uploadpostImage/:files", upload.single('image'),  async (req, res, next) => {
+router.post("/api/uploadpostImage/:files", upload.single('image'),  async (req, res, next) => {
 
 
 

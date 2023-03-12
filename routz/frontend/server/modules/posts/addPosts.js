@@ -28,7 +28,7 @@ var datetime =  currentdate.getDate() + "/"
                 + currentdate.getMinutes() + ":" 
                 + currentdate.getSeconds();
 router.post(
-  "/addPosts",
+  "/api/addPosts",
   authenticateJWT,
   upload.any("uploadImages"),
   async (req, res, next) => {
