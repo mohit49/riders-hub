@@ -10,10 +10,10 @@ import {
   Outlet,
 } from "react-router-dom";
 import { HelmetProvider } from 'react-helmet-async';
-import '../src/App.scss';
+import './App.scss';
 import Spinner from 'react-bootstrap/Spinner';
-import Header from "../src/includes/Header/Header";
-import Footer from "../src/includes/Footer/Footer";
+import Header from "./includes/Header/Header";
+import Footer from "./includes/Footer/Footer";
 import { motion } from "framer-motion";
 import Login from "./Pages/Login/Login";
 
@@ -85,13 +85,13 @@ export function App() {
   return (
     <HelmetProvider context={helmetContext}>
  <Data.Provider value={webStore}>
-   
+ <React.StrictMode>
         <Header />
 
         <Routes>
      
-          <Route element={<AnimationLayout />}>
-            <Route path='/' element={<Home />} />
+        
+            <Route path='*' element={<Home />} />
             <Route path='/login' element={<Login />} />
             <Route path='/register' element={<Register />} />
            
@@ -102,11 +102,11 @@ export function App() {
             <Route path='/event'>
               <Route path=':eventName' element={<ViewEvent />} />
             </Route>
-          </Route>
+        
      
         </Routes>
         <Footer/>
-     
+        </React.StrictMode>
     </Data.Provider>
     </HelmetProvider>
   );

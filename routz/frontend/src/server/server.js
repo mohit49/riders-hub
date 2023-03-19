@@ -1,15 +1,20 @@
+
 import path from 'path';
 import fs from 'fs';
 
-import express from 'express';
+import express, { json } from 'express';
 import React from 'react';
 import { renderToString } from 'react-dom/server';
 
-import App from '../src/App';
+import App from '../client/App';
 
 
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
+const webpackMiddleware = require('webpack-dev-middleware');
+const webpack = require('webpack');
+const webpackConfig = require('../../webpack.config');
+const compiler = webpack(webpackConfig);
 
 const appReact = App;
 
@@ -24,56 +29,46 @@ const https = require("https");
 const router = express.Router()
 
 
-//const bodyParser = require('body-parser');
+const bodyParser = require('body-parser');
 const http = require("http").Server(app);
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "http://localhost:3004",
     credentials: true,
   })
 );
-
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.json({ limit: "500mb" }));
 //app.use(express.urlencoded({limit: '50mb'}));
 app.use(cookieParser());
-
-const serverRenderer = (req, res, next) => {
-  
-  fs.readFile(path.resolve('../dist/index.html'), 'utf8', (err, data) => {
-    console.log(data)
-    let html = ReactDOMServer.renderToString(
-      <StaticRouter location={req.url}>
-        <App />
-      </StaticRouter>
-    );
-    console.log(html);
-    if (err) {
-      console.error(err)
-      return res.status(500).send('An error occurred')
-    }
-    return res.send(
-      data.replace(
-        '<div id="root"></div>',
-        `<div id="root">${html}</div>`
-      )
-    )
-  })
-}
-router.use('^/$', serverRenderer)
 
 
 
 // tell the app to use the above rules
 app.use(router)
 
-app.use(express.static('../dist'))
+
 /**
  * Api require Modules Name
  * @type {string}
  */
+
 app.use(express.static(__dirname + '/images'));
+
 app.use('/images', express.static(path.join(__dirname, 'images')))
 const registerPage = require("./modules/registration/registration");
+
+
+
+
+app.use(webpackMiddleware(compiler));
+// Fallback when no previous route was matched
+
+
+
+
 app.post("/api/register", registerPage);
 
 const loginPage = require("./modules/login/login");
@@ -117,6 +112,33 @@ app.post("/api/addPosts", addPosts);
 
 const searchBar = require("./modules/search-bar/search-bar");
 app.get("/api/search-bar", searchBar);
-http.listen(3004, function () {
+
+app.use("*",(req, res, next) => {
+
+  const filename = path.resolve(compiler.outputPath, 'index.html');
+  compiler.outputFileSystem.readFile(filename,'utf8', (err, result) => {
+
+    let html = ReactDOMServer.renderToString(
+      <StaticRouter location={req.url}>
+        <App />
+      </StaticRouter>
+    );
+    if (err) {
+      return next(err);
+    }
+ 
+    res.set('content-type','text/html');
+   
+ res.send(result.replace(
+  '<div id="root"></div>',
+  `<div id="root">${html}</div>`
+));
+
+  });
+});
+
+http.listen(process.env.PORT || 3004, function (req,res) {
+
+
   console.log("listening on *:4000");
 });

@@ -6,9 +6,9 @@ import Button from "react-bootstrap/Button";
 import ImgCrop from "antd-img-crop";
 import { Input, Upload } from "antd";
 
-//import { CKEditor } from "@ckeditor/ckeditor5-react";
+import { CKEditor } from "@ckeditor/ckeditor5-react";
 
-//import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
+import ClassicEditor from "@ckeditor/ckeditor5-build-classic";
 import { Spinner } from "react-bootstrap";
 import Form from "react-bootstrap/Form";
 import { DatePicker } from "antd";
@@ -239,25 +239,35 @@ function CreateEvent() {
                 </Form.Group>
                 <Form.Group className='mb-3' controlId='evenbtDuration'>
                   <Form.Label>Enter State : </Form.Label>
-                 
+                  <Suspense
+                    fallback={
+                      <div className='spinner-con'>
+                        <Spinner animation='border' variant='primary' />
+                      </div>
+                    }>
                     <CountryStateCity
                       type='state'
                       query='IN'
                       setValues={onchangeState}
                     />
-                 
+                  </Suspense>
                 </Form.Group>
                 {refetchcity && (
                   <Form.Group className='mb-3' controlId='evenbtDuration'>
                     <Form.Label>Enter City : </Form.Label>
-                   
+                    <Suspense
+                      fallback={
+                        <div className='spinner-con'>
+                          <Spinner animation='border' variant='primary' />
+                        </div>
+                      }>
                       <CountryStateCity
                         type='city'
                         query='IN'
                         query2={state?.isoCode}
                         setValues={onchangeCity}
                       />
-                  
+                    </Suspense>
                   </Form.Group>
                 )}
 

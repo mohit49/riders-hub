@@ -1,8 +1,12 @@
-require("file-loader?name=[name].[ext]!./index.html");
+
+
+
+
 import React from "react";
 import { App } from "./App";
 import "./App.scss";
-import ReactDOM from "react-dom";
+import {StrictMode} from 'react';
+import {createRoot} from 'react-dom/client';
 
 import {
   BrowserRouter as Router,
@@ -12,10 +16,13 @@ import {
   useLocation,
   Outlet,
 } from "react-router-dom";
-
-ReactDOM.hydrate(  
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
+root.render(  
+  <StrictMode>
  <Router>
     <App />
     </Router>
+    </StrictMode>
  , document.getElementById('root'));
 

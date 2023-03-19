@@ -3,18 +3,27 @@ const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
-module.exports = {
-  entry: './src/index.js',
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const outputDirectory = 'dist';
+const isProduction = process.argv[process.argv.indexOf('--mode') + 1] === 'production';
+
+module.exports =  {
+  entry: ['babel-polyfill', './src/client/index.js'],
   target: ["web", 'es5'],
+
   output: {
-    path: path.join(__dirname, "/dist"),
-    filename: "index.bundle.js",
-    publicPath: '/'
+    path: path.join(__dirname, outputDirectory),
+    filename: 'bundle.js'
   },
   devServer: {
     port: 3000,
+    open: true,
     historyApiFallback: true,
-  },
+    proxy: {
+      '/api': 'http://localhost:8080'
+    }
+  }
+,
   module: {
     rules: [
       
@@ -78,10 +87,14 @@ module.exports = {
       }
     ],
   },
-  plugins: [new MiniCssExtractPlugin(), new Dotenv() ],
+  plugins: [new MiniCssExtractPlugin() ,new CleanWebpackPlugin([outputDirectory]), new Dotenv({path :`${isProduction ? '.env.production' : '.env.development' }`}),  new HtmlWebpackPlugin({
+    template: './public/index.html',
+    favicon: './public/favicon.ico'
+  })  ],
    performance: {
         hints: false,
         maxEntrypointSize: 512000,
         maxAssetSize: 512000
     }
+  
 };
