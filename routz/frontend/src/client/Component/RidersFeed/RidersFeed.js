@@ -57,7 +57,7 @@ data.map((ele, index) => {
                       <img
                         alt='example'
                         src={
-                          ele.more[0].profilepic?.filename ? process.env.REACT_BASE_API_URL +
+                          ele.more[0].profilepic?.filename ? process.env.REACT_BASE_API_IMAGES +
                           ele.more[0].profilepic?.destination +
                           "/" +
                           ele.more[0].profilepic?.filename : profilepic

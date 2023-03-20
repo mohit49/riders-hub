@@ -9,7 +9,8 @@ import {
   useLocation,
   Outlet,
 } from "react-router-dom";
-import { HelmetProvider } from 'react-helmet-async';
+
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 import './App.scss';
 import Spinner from 'react-bootstrap/Spinner';
 import Header from "./includes/Header/Header";
@@ -86,10 +87,13 @@ export function App() {
     <HelmetProvider context={helmetContext}>
  <Data.Provider value={webStore}>
  <React.StrictMode>
-        <Header />
-
-        <Routes>
-     
+  <Helmet>
+    <title>Social Networks For bikers</title>
+    <meta name="description" content="Social Networks For bikers"/>
+  <meta name="keywords" content="HTML, CSS, JavaScript"/>
+  </Helmet>
+      <Header/>
+ <Routes>
         
             <Route path='*' element={<Home />} />
             <Route path='/login' element={<Login />} />
@@ -103,9 +107,9 @@ export function App() {
               <Route path=':eventName' element={<ViewEvent />} />
             </Route>
         
-     
-        </Routes>
+            </Routes>
         <Footer/>
+       
         </React.StrictMode>
     </Data.Provider>
     </HelmetProvider>

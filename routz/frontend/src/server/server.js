@@ -8,13 +8,11 @@ import { renderToString } from 'react-dom/server';
 
 import App from '../client/App';
 
-
+import { Helmet } from "react-helmet";
 import ReactDOMServer from "react-dom/server";
 import { StaticRouter } from "react-router-dom/server";
 const webpackMiddleware = require('webpack-dev-middleware');
-const webpack = require('webpack');
-const webpackConfig = require('../../webpack.config');
-const compiler = webpack(webpackConfig);
+
 
 const appReact = App;
 
@@ -49,26 +47,18 @@ app.use(cookieParser());
 // tell the app to use the above rules
 app.use(router)
 
+app.use(express.static(__dirname + '/images'));
+
+app.use(express.static('server-build'));
 
 /**
  * Api require Modules Name
  * @type {string}
  */
-
 app.use(express.static(__dirname + '/images'));
 
 app.use('/images', express.static(path.join(__dirname, 'images')))
 const registerPage = require("./modules/registration/registration");
-
-
-
-
-app.use(webpackMiddleware(compiler));
-// Fallback when no previous route was matched
-
-
-
-
 app.post("/api/register", registerPage);
 
 const loginPage = require("./modules/login/login");
@@ -113,29 +103,41 @@ app.post("/api/addPosts", addPosts);
 const searchBar = require("./modules/search-bar/search-bar");
 app.get("/api/search-bar", searchBar);
 
-app.use("*",(req, res, next) => {
-
-  const filename = path.resolve(compiler.outputPath, 'index.html');
-  compiler.outputFileSystem.readFile(filename,'utf8', (err, result) => {
-
-    let html = ReactDOMServer.renderToString(
-      <StaticRouter location={req.url}>
-        <App />
-      </StaticRouter>
-    );
+app.use('^/*',(req, res) => {
+  const app = ReactDOMServer.renderToString(  <StaticRouter location={req.url}>
+    <App />
+  </StaticRouter>);
+   const helmet = Helmet.renderStatic();
+  
+  const indexFile = path.resolve('public/index.html');
+  const html = `
+  <!DOCTYPE html>
+  <html ${helmet.htmlAttributes.toString()}>
+    <head>
+      ${helmet.title.toString()}
+      ${helmet.meta.toString()}
+      ${helmet.link.toString()}
+      <link rel="stylesheet" href="main.css"/>
+    </head>
+    <body ${helmet.bodyAttributes.toString()}>
+      <div id="root">
+        ${app}
+      </div>
+      </body>
+      <script src="index.min.js"></script>
+  </html>
+`;
+  fs.readFile(indexFile, 'utf8', (err, data) => {
     if (err) {
-      return next(err);
+      console.error('Something went wrong:', err);
+      return res.status(500).send('Oops, better luck next time!');
     }
- 
     res.set('content-type','text/html');
-   
- res.send(result.replace(
-  '<div id="root"></div>',
-  `<div id="root">${html}</div>`
-));
-
+    return res.send(data.replace(data , html));
   });
 });
+
+// Fallback when no previous route was matched
 
 http.listen(process.env.PORT || 3004, function (req,res) {
 

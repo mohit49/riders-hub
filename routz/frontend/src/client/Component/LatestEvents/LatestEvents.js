@@ -135,7 +135,7 @@ function LatestEvents() {
                       <img
                         alt='example'
                         src={
-                          process.env.REACT_BASE_API_URL +
+                          process.env.REACT_BASE_API_IMAGES +
                           ele.eventcoverpic.destination +
                           "/" +
                           ele.eventcoverpic.filename

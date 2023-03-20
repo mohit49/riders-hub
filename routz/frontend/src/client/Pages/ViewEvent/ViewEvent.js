@@ -99,7 +99,7 @@ function ViewEvent() {
           <div className="top-container">
          <div className="event-cover-pic">
           <div className="overlay"></div>
-          <img src={ process.env.REACT_BASE_API_URL + eventData?.eventcoverpic?.destination.split('./')[1] + '/' + eventData?.eventcoverpic?.filename}/>
+          <img src={ process.env.REACT_BASE_API_IMAGES + eventData?.eventcoverpic?.destination.split('./')[1] + '/' + eventData?.eventcoverpic?.filename}/>
          </div>
          <div className="bannerInfo">
           <div className="banner-con">

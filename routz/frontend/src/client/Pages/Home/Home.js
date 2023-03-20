@@ -18,6 +18,7 @@ import SearchBar from "../../Component/SearchBar/SearchBar";
 import Latestposts from "../../Component/Latestposts/Latestposts";
 import Ridersupdate from "../../Component/Ridersupdate/Ridersupdate";
 import RidersFeed from "../../Component/RidersFeed/RidersFeed";
+import {Helmet} from "react-helmet";
 const profileFetch =
   process.env.REACT_BASE_API_URL + process.env.REACT_APP_PROFILE_FETCH;
 function Home() {
@@ -63,6 +64,11 @@ const sliderItem = {
 }
   return (
     <>
+    <Helmet>
+    <title>Social Networks For bikers :: Home</title>
+    <meta name="description" content="Social Networks For bikers"/>
+  <meta name="keywords" content="HTML, CSS, JavaScript, Home"/>
+    </Helmet>
     <Container className="simpleSection">
       <Slider effect='fade' autoPlay={true} items={sliderItem} dotPosition='bottom' buttonClass='primary' className='slider-home'/>
 <SearchBar/>

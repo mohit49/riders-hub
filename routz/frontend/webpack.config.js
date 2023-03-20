@@ -4,23 +4,24 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const Dotenv = require("dotenv-webpack");
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const outputDirectory = 'dist';
+const RemovePlugin = require('remove-files-webpack-plugin');
+const outputDirectory = 'server-build';
 const isProduction = process.argv[process.argv.indexOf('--mode') + 1] === 'production';
 
 module.exports =  {
-  entry: ['babel-polyfill', './src/client/index.js'],
+  entry: [ './src/client/index.js'],
   target: ["web", 'es5'],
 
   output: {
     path: path.join(__dirname, outputDirectory),
-    filename: 'bundle.js'
+    filename: 'index.min.js'
   },
   devServer: {
     port: 3000,
     open: true,
     historyApiFallback: true,
     proxy: {
-      '/api': 'http://localhost:8080'
+      '/api': 'http://localhost:3004'
     }
   }
 ,
@@ -87,7 +88,11 @@ module.exports =  {
       }
     ],
   },
-  plugins: [new MiniCssExtractPlugin() ,new CleanWebpackPlugin([outputDirectory]), new Dotenv({path :`${isProduction ? '.env.production' : '.env.development' }`}),  new HtmlWebpackPlugin({
+  resolve: {
+    extensions: ['*', '.js', '.jsx']
+  },
+  plugins: [new CleanWebpackPlugin([outputDirectory]), new MiniCssExtractPlugin() , new Dotenv({path :`${isProduction ? '.env.production' : '.env.development' }`}),
+  new HtmlWebpackPlugin({
     template: './public/index.html',
     favicon: './public/favicon.ico'
   })  ],

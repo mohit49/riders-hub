@@ -15,7 +15,7 @@ const Slickslider = ({ settings, data }) => {
             <p>{itemsVal?.authorinfo?.usertype} </p>
           </div>
           <div className="item-img">
-<img src={process.env.REACT_BASE_API_URL  + itemsVal.postpics[0].destination+'/'+ itemsVal?.postpics[0]?.filename}/>
+<img src={process.env.REACT_BASE_API_IMAGES  + itemsVal.postpics[0].destination+'/'+ itemsVal?.postpics[0]?.filename}/>
         </div>
         </div>
       })}

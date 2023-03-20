@@ -1,28 +1,15 @@
 
-
-
-
 import React from "react";
-import { App } from "./App";
-import "./App.scss";
-import {StrictMode} from 'react';
-import {createRoot} from 'react-dom/client';
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { hydrateRoot } from 'react-dom/client';
+import App from "./App";
 
-import {
-  BrowserRouter as Router,
-  Link,
-  Routes,
-  Route,
-  useLocation,
-  Outlet,
-} from "react-router-dom";
-const rootElement = document.getElementById('root');
-const root = createRoot(rootElement);
-root.render(  
-  <StrictMode>
- <Router>
+
+const rootNode = document.getElementById('root');
+const root = ReactDOM.hydrateRoot(rootNode, <React.StrictMode>
+  <BrowserRouter>
     <App />
-    </Router>
-    </StrictMode>
- , document.getElementById('root'));
+  </BrowserRouter></React.StrictMode>);
+
 
